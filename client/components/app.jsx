@@ -5,7 +5,8 @@ export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      list: []
+      list: [],
+      averageGrade: null
     };
   }
 
@@ -16,10 +17,26 @@ export default class App extends React.Component {
       .catch(error => alert(error));
   }
 
+  getAverageGrade() {
+    if (this.state.list) {
+      let grade = null;
+      let counter = 0;
+      for (var count = 0; count < this.state.list.length; count++) {
+        grade += this.state.list[count].grade;
+        counter++;
+      }
+      let average = grade / counter;
+      return Math.round(average);
+    } else {
+      return null;
+    }
+  }
+
   render() {
+    this.getAverageGrade();
     return (
       <div>
-        <Header />
+        <Header averageG={this.getAverageGrade()}/>
         <GradeTable table={this.state.list}/>
       </div>
     );
