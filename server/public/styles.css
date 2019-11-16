@@ -1,0 +1,29 @@
+.grade-table{
+    float: left;
+    width: 80%;
+    margin-right: 10px;
+}
+
+.grade-form input{
+    display: block;
+    margin: 10px;
+}
+
+.grade-form button{
+    margin-left: 5px;
+    
+}
+
+.grade-form i{
+    width: 20px;
+    height: 16px;
+    float: left;
+    margin-top: 10px;
+    margin-right: 5px;
+}
+
+.button-grade-from{
+    margin-left: 84%;
+    margin-top: 1%;
+    position: absolute;
+}
