@@ -49,15 +49,16 @@ export default class App extends React.Component {
   }
 
   deleteStudent(removeStudentId) {
-    const findId = this.state.list.find(students => { return students.id === removeStudentId; });
+    const findId = this.state.list.findIndex(students => { return students.id === removeStudentId; });
     fetch('/api/grades/' + removeStudentId, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' }
     })
       .then(res => res.json())
       .then(update => {
-        const allStudents = update.splice(findId, 1);
-        this.setState({ list: allStudents });
+        const newArray = this.state.list.slice();
+        newArray.splice(findId, 1);
+        this.setState({ list: newArray });
         this.getAverageGrade();
       })
       .catch(error => alert(error));
