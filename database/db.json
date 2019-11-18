@@ -35,6 +35,12 @@
       "course": "Math",
       "grade": 89,
       "id": 6
+    },
+    {
+      "name": "Beta",
+      "course": "Art",
+      "grade": 83,
+      "id": 7
     }
   ]
 }
