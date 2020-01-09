@@ -17,24 +17,6 @@
       "course": "Web Development",
       "grade": 50,
       "id": 3
-    },
-    {
-      "name": "Khoa",
-      "course": "Sleep",
-      "grade": 99,
-      "id": 4
-    },
-    {
-      "name": "Jake",
-      "course": "Ice Skating",
-      "grade": 85,
-      "id": 5
-    },
-    {
-      "name": "Ziyaah",
-      "course": "Math",
-      "grade": 89,
-      "id": 6
     }
   ]
 }

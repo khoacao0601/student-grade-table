@@ -9,6 +9,7 @@ export default class App extends React.Component {
       list: []
     };
     this.addStudent = this.addStudent.bind(this);
+    this.deleteStudent = this.deleteStudent.bind(this);
   }
 
   componentDidMount() {
@@ -47,11 +48,27 @@ export default class App extends React.Component {
       .catch(error => alert(error));
   }
 
+  deleteStudent(removeStudentId) {
+    const findId = this.state.list.findIndex(students => { return students.id === removeStudentId; });
+    fetch('/api/grades/' + removeStudentId, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' }
+    })
+      .then(res => res.json())
+      .then(update => {
+        const newArray = this.state.list.slice();
+        newArray.splice(findId, 1);
+        this.setState({ list: newArray });
+        this.getAverageGrade();
+      })
+      .catch(error => alert(error));
+  }
+
   render() {
     return (
       <div>
         <Header averageG={this.getAverageGrade()}/>
-        <GradeTable table={this.state.list}/>
+        <GradeTable table={this.state.list} remove={this.deleteStudent}/>
         <GradeForm addOne={this.addStudent}/>
       </div>
     );
