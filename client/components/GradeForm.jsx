@@ -40,19 +40,23 @@ export default class GradeFrom extends React.Component {
 
   render() {
     return (
-      <div className="grade-form" >
+      <div className="grade-form d-block" >
         <form onSubmit={this.sendValue} onReset={this.handleReset}>
-          <div className="">
-            <i className="fas fa-user"></i>
+          <div className="d-block">
+            <i className="fas fa-user mr-2"></i>
             <input placeholder="Name" type="text" value={this.state.name} onChange={this.handleChangeName}></input>
           </div>
-          <i className="fas fa-book"></i>
-          <input placeholder="Course" type="text" value={this.state.course} onChange={this.handleChangeCourse}></input>
-          <i className="fas fa-graduation-cap"></i>
-          <input placeholder="Grade" type="number" value={this.state.grade} onChange={this.handleChangeGrade}></input>
-          <div className="button-grade-from d-flex justify-content-left">
-            <button type="submit" className="btn btn-success">Add</button>
-            <button type="reset" className="btn btn-success">Cancel</button>
+          <div className="d-block mt-2">
+            <i className="fas fa-book mr-2"></i>
+            <input placeholder="Course" type="text" value={this.state.course} onChange={this.handleChangeCourse}></input>
+          </div>
+          <div className="d-block mt-2">
+            <i className="fas fa-graduation-cap mr-2"></i>
+            <input placeholder="Grade" type="number" value={this.state.grade} onChange={this.handleChangeGrade}></input>
+          </div>
+          <div className="button-grade-from d-flex justify-content-left mt-3">
+            <button type="submit" className="btn btn-success ml-3">Add</button>
+            <button type="reset" className="btn btn-success ml-3">Cancel</button>
           </div>
         </form>
       </div>
