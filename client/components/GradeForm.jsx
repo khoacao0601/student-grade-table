@@ -40,9 +40,9 @@ export default class GradeFrom extends React.Component {
 
   render() {
     return (
-      <div className="grade-form d-block" >
+      <div className="grade-form d-inline-block ml-3" >
         <form onSubmit={this.sendValue} onReset={this.handleReset}>
-          <div className="d-block">
+          <div className="d-block-xl">
             <i className="fas fa-user mr-2"></i>
             <input placeholder="Name" type="text" value={this.state.name} onChange={this.handleChangeName}></input>
           </div>

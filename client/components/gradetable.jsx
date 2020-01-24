@@ -5,7 +5,7 @@ export default function GradeTable(props) {
   const table = props.table.map((object, indexArray) => <Grade key={indexArray} sending={object} deleteStudent={props.remove}/>);
 
   return (
-    <div className="grade-table">
+    <div className="grade-table d-inline-block col-xl-10 col-lg-8 col-md-8 col-xs-8">
       <table className="table table-striped">
         <thead className="thead-dark">
           <tr>

@@ -1,21 +1,16 @@
-.grade-table{
-    display: inline-block;
-    width: 80%;
-    margin-right: 10px;
-}
-
-/* .grade-form input{
-    display: block;
-    margin: 10px;
-} */
-
 .grade-form i{
     width: 20px;
     height: 16px;   
 } 
 
-/* .button-grade-from{
-    margin-left: 84%;
-    margin-top: 1%;
-    position: absolute;
-} */
+@media only screen and (min-width: 1080px) {
+    .grade-form {
+        position: absolute;
+    }   
+}
+
+@media only screen and (min-width: 768px) {
+    .grade-form {
+        position: absolute;
+    }   
+}
