@@ -68,8 +68,10 @@ export default class App extends React.Component {
     return (
       <div>
         <Header averageG={this.getAverageGrade()}/>
-        <GradeTable table={this.state.list} remove={this.deleteStudent}/>
-        <GradeForm addOne={this.addStudent}/>
+        <div className="align-self-center">
+          <GradeTable table={this.state.list} remove={this.deleteStudent}/>
+          <GradeForm addOne={this.addStudent}/>
+        </div>
       </div>
     );
   }
