@@ -27,7 +27,7 @@ export default class App extends React.Component {
         grade += this.state.list[count].grade;
         counter++;
       }
-      let average = grade / counter;
+      const average = grade / counter;
       return Math.round(average);
     } else {
       return null;
@@ -50,7 +50,7 @@ export default class App extends React.Component {
 
   deleteStudent(removeStudentId) {
     const findId = this.state.list.findIndex(students => { return students.id === removeStudentId; });
-    fetch('/api/grades/' + removeStudentId, {
+    fetch('/api/grades?studentId=' + removeStudentId, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' }
     })
