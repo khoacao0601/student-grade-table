@@ -14,6 +14,3 @@
         position: absolute;
     }   
 }
-/* Need update on back end for api with PHP. Extra will be Update infos */
-/* Need deploy on AWS */
-/** We used to set up cerbot for my main domain when we studied about deploy and AWS. For now i deployed my portfolio on the same domain, but when i go to https i only get "Hello World" , if i want my portfolio i only can go to http **/

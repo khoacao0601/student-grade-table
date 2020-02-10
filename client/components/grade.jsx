@@ -3,7 +3,7 @@ import React from 'react';
 export default function Grade(props) {
 
   function deleteOne() {
-    return props.deleteStudent(props.sending.id);
+    return props.deleteStudent(props.sending.studentId);
   }
 
   return (
