@@ -56,20 +56,20 @@ export default class Grade extends React.Component {
           <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3">{this.props.sending.course}</td>
           <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3">{this.props.sending.grade}</td>
           <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3">
-            <button className="col-10 col-xl-3 col-lg-4 col-md-5 col-sm-4 btn btn-danger center-block mr-3 mb-2" onClick={this.deleteOne}>Delete</button>
-            <button className="col-10 col-xl-3 col-lg-4 col-md-5 col-sm-4 btn btn-warning center-block mb-2" onClick={this.changeUpdate}>Update</button>
+            <button className="col-12 col-xl-4 col-lg-6 col-md-9 col-sm-6 btn btn-danger center-block mr-3 mb-2" onClick={this.deleteOne}>Delete</button>
+            <button className="col-12 col-xl-4 col-lg-6 col-md-9 col-sm-6 btn btn-warning center-block mb-2" onClick={this.changeUpdate}>Update</button>
           </td>
         </tr>
       );
     } else {
       return (
         <tr className="row">
-          <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3"><input name="name" defaultValue={this.props.sending.name} onChange={this.handleChange} ></input></td>
-          <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3"><input name="course" defaultValue={this.props.sending.course} onChange={this.handleChange} ></input></td>
-          <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3"><input name="grade" defaultValue={this.props.sending.grade} onChange={this.handleChange} ></input></td>
+          <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3"><input name="name" defaultValue={this.props.sending.name} onChange={this.handleChange} className="w-100" ></input></td>
+          <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3"><input name="course" defaultValue={this.props.sending.course} onChange={this.handleChange} className="w-100"></input></td>
+          <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3"><input name="grade" defaultValue={this.props.sending.grade} onChange={this.handleChange} className="w-50"></input></td>
           <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3">
-            <button className="col-10 col-xl-3 col-lg-4 col-md-5 col-sm-4 btn btn-outline-danger center-block mr-3 mb-2" onClick={this.cancelUpdate}>Cancel</button>
-            <button className="col-10 col-xl-3 col-lg-4 col-md-5 col-sm-4 btn btn-outline-success center-block mb-2" onClick={this.sendValue}>Save</button>
+            <button className="col-12 col-xl-4 col-lg-6 col-md-9 col-sm-6 btn btn-outline-danger center-block mr-3 mb-2" onClick={this.cancelUpdate}>Cancel</button>
+            <button className="col-12 col-xl-4 col-lg-6 col-md-9 col-sm-6 btn btn-outline-success center-block mb-2" onClick={this.sendValue}>Save</button>
           </td>
         </tr>
       );
