@@ -10,6 +10,7 @@ export default class App extends React.Component {
     };
     this.addStudent = this.addStudent.bind(this);
     this.deleteStudent = this.deleteStudent.bind(this);
+    this.update = this.update.bind(this);
   }
 
   componentDidMount() {
@@ -64,12 +65,23 @@ export default class App extends React.Component {
       .catch(error => alert(error));
   }
 
+  update(updateStudent) {
+    fetch('/api/grades', {
+      method: 'PATCH',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(updateStudent[0])
+    })
+      .then(respone => respone.json())
+      .then(data => this.setState({ list: data }))
+      .catch(error => alert(error));
+  }
+
   render() {
     return (
       <div>
         <Header averageG={this.getAverageGrade()}/>
         <div className="galign-self-center">
-          <GradeTable table={this.state.list} remove={this.deleteStudent}/>
+          <GradeTable table={this.state.list} remove={this.deleteStudent} update={this.update}/>
           <GradeForm addOne={this.addStudent}/>
         </div>
       </div>
