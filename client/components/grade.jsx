@@ -7,9 +7,9 @@ export default class Grade extends React.Component {
     this.state = {
       update: 1,
       id: props.sending.studentId,
-      name: '',
-      course: '',
-      grade: ''
+      name: props.sending.name,
+      course: props.sending.course,
+      grade: props.sending.grade
     };
 
     this.deleteOne = this.deleteOne.bind(this);
@@ -46,6 +46,8 @@ export default class Grade extends React.Component {
       grade: this.state.grade
     };
     this.props.update(sendValue);
+    this.cancelUpdate();
+
   }
 
   render() {

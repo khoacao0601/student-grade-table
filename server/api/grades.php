@@ -47,7 +47,7 @@
     }
 
     function checkEmptyUpdate($request) {
-        if(!isset($request['body']['studentId'])){ throw new ApiError("Require sudentID", 400);};
+        if(!isset($request['body']['studentId'])){ throw new ApiError("Require studentID", 400);};
         if(!isset($request['body']['name'])){ throw new ApiError("Require name", 400);};
         if(!isset($request['body']['course'])){ throw new ApiError("Require course", 400);};
         if(!isset($request['body']['grade'])){ throw new ApiError("Require grade", 400);};
