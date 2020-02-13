@@ -69,7 +69,7 @@ export default class App extends React.Component {
     fetch('/api/grades', {
       method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(updateStudent[0])
+      body: JSON.stringify(updateStudent)
     })
       .then(respone => respone.json())
       .then(data => this.setState({ list: data }))
@@ -80,7 +80,7 @@ export default class App extends React.Component {
     return (
       <div>
         <Header averageG={this.getAverageGrade()}/>
-        <div className="galign-self-center">
+        <div className="align-self-center">
           <GradeTable table={this.state.list} remove={this.deleteStudent} update={this.update}/>
           <GradeForm addOne={this.addStudent}/>
         </div>
