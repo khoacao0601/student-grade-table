@@ -10,7 +10,11 @@ export default class Grade extends React.Component {
       name: props.sending.name,
       course: props.sending.course,
       grade: props.sending.grade,
-      statusName: ''
+      status: {
+        statusName: '',
+        statusCourse: '',
+        statusGrade: ''
+      }
     };
 
     this.deleteOne = this.deleteOne.bind(this);
@@ -23,10 +27,20 @@ export default class Grade extends React.Component {
 
   changeUpdate() {
     this.setState({ update: 0 });
+    this.setState({ statusName: '' });
+    this.setState({ statusCourse: '' });
+    this.setState({ statusGrade: '' });
   }
 
   cancelUpdate() {
     this.setState({ update: 1 });
+    this.setState({
+      status: {
+        statusName: '',
+        statusCourse: '',
+        statusGrade: ''
+      }
+    });
   }
 
   deleteOne() {
@@ -39,8 +53,7 @@ export default class Grade extends React.Component {
     this.setState(newState);
   }
 
-  sendValue(event) {
-    event.preventDefault();
+  sendValue() {
     const sendValue = {
       studentId: this.state.id,
       name: this.state.name,
@@ -52,8 +65,44 @@ export default class Grade extends React.Component {
   }
 
   checkEmptySend() {
-    if (this.state.name === '') {
-      this.setState({ statusName: '* Empty Name' });
+    var emptyArr = [];
+    const value = this.state;
+    for (var key in value) {
+      // eslint-disable-next-line no-prototype-builtins
+      if (value.hasOwnProperty(key)) {
+        if (value[key] === '') {
+          emptyArr.push(key);
+        }
+      }
+    }
+
+    for (let i = 0; i < emptyArr.length; i++) {
+      if (emptyArr[i] === 'name') {
+        this.setState(prevState => ({
+          status: {
+            ...prevState.status,
+            statusName: '*Empty Name'
+          }
+        }));
+      } else if (emptyArr[i] === 'course') {
+        this.setState(prevState => ({
+          status: {
+            ...prevState.status,
+            statusCourse: '*Empty Course'
+          }
+        }));
+      } else if (emptyArr[i] === 'grade') {
+        this.setState(prevState => ({
+          status: {
+            ...prevState.status,
+            statusGrade: '*Empty Grade'
+          }
+        }));
+      }
+    }
+
+    if (emptyArr.length <= 3) {
+      this.sendValue();
     }
   }
 
@@ -73,9 +122,9 @@ export default class Grade extends React.Component {
     } else {
       return (
         <tr className="row">
-          <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3"><input type="text" name="name" defaultValue={this.props.sending.name} onChange={this.handleChange} className="w-100" ></input>{this.state.statusName}</td>
-          <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3"><input type="text" name="course" defaultValue={this.props.sending.course} onChange={this.handleChange} className="w-100"></input></td>
-          <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3"><input type="number" name="grade" defaultValue={this.props.sending.grade} onChange={this.handleChange} className="w-50"></input></td>
+          <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3"><input type="text" name="name" defaultValue={this.props.sending.name} onChange={this.handleChange} className="w-100" ></input><p className="text-danger mt-2">{this.state.status.statusName}</p></td>
+          <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3"><input type="text" name="course" defaultValue={this.props.sending.course} onChange={this.handleChange} className="w-100"></input><p className="text-danger mt-2">{this.state.status.statusCourse}</p></td>
+          <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3"><input type="number" name="grade" defaultValue={this.props.sending.grade} onChange={this.handleChange} className="w-50"></input><p className="text-danger mt-2">{this.state.status.statusGrade}</p></td>
           <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3">
             <button className="col-12 col-xl-4 col-lg-6 col-md-9 col-sm-6 btn btn-outline-danger center-block mr-3 mb-2" onClick={this.cancelUpdate}>Cancel</button>
             <button className="col-12 col-xl-4 col-lg-6 col-md-9 col-sm-6 btn btn-outline-success center-block mb-2" onClick={this.checkEmptySend}>Save</button>

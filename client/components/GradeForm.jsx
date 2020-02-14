@@ -4,12 +4,12 @@ export default class GradeFrom extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: {
-        name: '',
-        course: '',
-        grade: ''
-      },
-      status: ''
+      name: '',
+      course: '',
+      grade: '',
+      status: {
+        empty: ''
+      }
     };
 
     this.handleChangeName = this.handleChangeName.bind(this);
@@ -21,33 +21,15 @@ export default class GradeFrom extends React.Component {
   }
 
   handleChangeName() {
-    this.setState({
-      value: {
-        name: event.target.value,
-        course: this.state.value.course,
-        grade: this.state.value.grade
-      }
-    });
+    this.setState({ name: event.target.value });
   }
 
   handleChangeCourse() {
-    this.setState({
-      value: {
-        name: this.state.value.name,
-        course: event.target.value,
-        grade: this.state.value.grade
-      }
-    });
+    this.setState({ course: event.target.value });
   }
 
   handleChangeGrade() {
-    this.setState({
-      value: {
-        name: this.state.value.name,
-        course: this.state.value.course,
-        grade: event.target.value
-      }
-    });
+    this.setState({ grade: event.target.value });
   }
 
   handleReset() {
@@ -59,10 +41,15 @@ export default class GradeFrom extends React.Component {
         grade: ''
       }
     });
+    this.setState({ status: { empty: '' } });
   }
 
   sendValue() {
-    const valueSend = this.state.value;
+    const valueSend = {
+      name: this.state.name,
+      course: this.state.course,
+      grade: this.state.grade
+    };
     this.props.addOne(valueSend);
     this.handleReset();
   }
@@ -70,7 +57,7 @@ export default class GradeFrom extends React.Component {
   checkEmptySend(event) {
     event.preventDefault();
     var emptyArr = ['*Missing: '];
-    const value = this.state.value;
+    const value = this.state;
     for (var key in value) {
       // eslint-disable-next-line no-prototype-builtins
       if (value.hasOwnProperty(key)) {
@@ -82,9 +69,9 @@ export default class GradeFrom extends React.Component {
 
     if (emptyArr.length === 1) {
       this.sendValue();
-      this.setState({ status: '' });
+      this.setState({ status: { empty: '' } });
     } else {
-      this.setState({ status: emptyArr.join(' ') });
+      this.setState({ status: { empty: emptyArr.join(' ') } });
     }
   }
 
@@ -108,7 +95,7 @@ export default class GradeFrom extends React.Component {
             <button type="submit" className="btn btn-success ml-3">Add</button>
             <button type="reset" className="btn btn-success ml-3">Cancel</button>
           </div>
-          <p className="text-danger mt-2"> {this.state.status}</p>
+          <p className="text-danger mt-2"> {this.state.status.empty}</p>
         </form>
       </div>
     );
