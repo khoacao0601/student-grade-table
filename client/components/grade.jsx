@@ -9,7 +9,8 @@ export default class Grade extends React.Component {
       id: props.sending.studentId,
       name: props.sending.name,
       course: props.sending.course,
-      grade: props.sending.grade
+      grade: props.sending.grade,
+      statusName: ''
     };
 
     this.deleteOne = this.deleteOne.bind(this);
@@ -17,6 +18,7 @@ export default class Grade extends React.Component {
     this.cancelUpdate = this.cancelUpdate.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.sendValue = this.sendValue.bind(this);
+    this.checkEmptySend = this.checkEmptySend.bind(this);
   }
 
   changeUpdate() {
@@ -47,7 +49,12 @@ export default class Grade extends React.Component {
     };
     this.props.update(sendValue);
     this.cancelUpdate();
+  }
 
+  checkEmptySend() {
+    if (this.state.name === '') {
+      this.setState({ statusName: '* Empty Name' });
+    }
   }
 
   render() {
@@ -66,12 +73,12 @@ export default class Grade extends React.Component {
     } else {
       return (
         <tr className="row">
-          <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3"><input name="name" defaultValue={this.props.sending.name} onChange={this.handleChange} className="w-100" ></input></td>
-          <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3"><input name="course" defaultValue={this.props.sending.course} onChange={this.handleChange} className="w-100"></input></td>
-          <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3"><input name="grade" defaultValue={this.props.sending.grade} onChange={this.handleChange} className="w-50"></input></td>
+          <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3"><input type="text" name="name" defaultValue={this.props.sending.name} onChange={this.handleChange} className="w-100" ></input>{this.state.statusName}</td>
+          <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3"><input type="text" name="course" defaultValue={this.props.sending.course} onChange={this.handleChange} className="w-100"></input></td>
+          <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3"><input type="number" name="grade" defaultValue={this.props.sending.grade} onChange={this.handleChange} className="w-50"></input></td>
           <td className="col-3 col-xl-3 col-lg-3 col-md-3 col-sm-3">
             <button className="col-12 col-xl-4 col-lg-6 col-md-9 col-sm-6 btn btn-outline-danger center-block mr-3 mb-2" onClick={this.cancelUpdate}>Cancel</button>
-            <button className="col-12 col-xl-4 col-lg-6 col-md-9 col-sm-6 btn btn-outline-success center-block mb-2" onClick={this.sendValue}>Save</button>
+            <button className="col-12 col-xl-4 col-lg-6 col-md-9 col-sm-6 btn btn-outline-success center-block mb-2" onClick={this.checkEmptySend}>Save</button>
           </td>
         </tr>
       );
