@@ -30,6 +30,7 @@ export default class Grade extends React.Component {
     this.setState({ statusName: '' });
     this.setState({ statusCourse: '' });
     this.setState({ statusGrade: '' });
+    this.setState({ name: this.props.sending.name, course: this.props.sending.course, grade: this.props.sending.grade });
   }
 
   cancelUpdate() {
@@ -41,6 +42,7 @@ export default class Grade extends React.Component {
         statusGrade: ''
       }
     });
+    this.setState({ name: this.props.sending.name, course: this.props.sending.course, grade: this.props.sending.grade });
   }
 
   deleteOne() {
