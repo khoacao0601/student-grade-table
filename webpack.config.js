@@ -1,4 +1,5 @@
 12345789
+12345
 const path = require('path');
 
 const clientPath = path.resolve(__dirname, 'client');
