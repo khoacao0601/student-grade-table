@@ -21,3 +21,4 @@ export default function GradeTable(props) {
   );
 }
 012345
+6789
