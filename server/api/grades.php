@@ -1,7 +1,7 @@
 <?php 
 
-    $link = get_db_link();
-012345
+    
+
     if ($request['method'] === 'GET') {
         $sqlAllStudent = "SELECT * FROM students";
         $resultAll = mysqli_query($link,$sqlAllStudent);
