@@ -1,6 +1,6 @@
 <?php 
 
-    
+    $link = get_db_link();
 
     if ($request['method'] === 'GET') {
         $sqlAllStudent = "SELECT * FROM students";
