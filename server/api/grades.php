@@ -2,7 +2,15 @@
 
     $link = get_db_link();
 
-    
+    if ($request['method'] === 'GET') {
+        $sqlAllStudent = "SELECT * FROM students";
+        $resultAll = mysqli_query($link,$sqlAllStudent);
+        $fetch_All = mysqli_fetch_all($resultAll, MYSQLI_ASSOC);
+        $response['body'] = $fetch_All;
+        send($response);
+    }
+
+0123456789
 
     if ($request['method'] === 'POST') {
         $body = checkEmpty($request);
