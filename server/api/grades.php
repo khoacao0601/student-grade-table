@@ -9,7 +9,7 @@
         $response['body'] = $fetch_All;
         send($response);
     }
-
+0123456789
     if ($request['method'] === 'POST') {
         $body = checkEmpty($request);
         $add = addStudent($link, $body);
