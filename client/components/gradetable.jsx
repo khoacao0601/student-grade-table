@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Grade from './grade';
 
 export default function GradeTable(props) {
   const table = props.table.map((object, indexArray) => <Grade key={indexArray} sending={object} deleteStudent={props.remove} update={props.update}/>);
