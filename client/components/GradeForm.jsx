@@ -21,7 +21,7 @@ export default class GradeFrom extends React.Component {
   }
 
   handleChangeName() {
-   
+    this.setState({ name: event.target.value });
   }
 
   handleChangeCourse() {
