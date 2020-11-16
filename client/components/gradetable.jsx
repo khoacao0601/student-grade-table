@@ -19,5 +19,4 @@ export default function GradeTable(props) {
       </table>
     </div>
   );
-  0123456789
 }
