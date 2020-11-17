@@ -13,3 +13,4 @@ case '/api/health-check':
     throw new ApiError("Cannot ${request['method']} ${request['path']}", 404); 
 }
 012345
+6789
