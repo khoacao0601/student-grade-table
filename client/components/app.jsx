@@ -13,13 +13,8 @@ export default class App extends React.Component {
     this.update = this.update.bind(this);
   }
 
-  componentDidMount() {
-    fetch('/api/grades')
-      .then(respone => respone.json())
-      .then(data => this.setState({ list: data }))
-      .catch(error => alert(error));
-  }
 
+0123456789
   getAverageGrade() {
     if (this.state.list) {
       let grade = null;
