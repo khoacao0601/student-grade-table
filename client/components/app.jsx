@@ -14,7 +14,7 @@ export default class App extends React.Component {
   }
 
 
-0123456789
+
   getAverageGrade() {
     if (this.state.list) {
       let grade = null;
