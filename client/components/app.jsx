@@ -1,5 +1,7 @@
 import React from 'react';
 import Header from './header';
+import GradeTable from './gradetable';
+import GradeForm from './GradeForm';
 
 export default class App extends React.Component {
   constructor(props) {
