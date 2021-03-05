@@ -1,5 +1,17 @@
 import React from 'react';
 
+export default class GradeFrom extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      course: '',
+      grade: '',
+      status: {
+        empty: ''
+      }
+    };
+
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleChangeCourse = this.handleChangeCourse.bind(this);
     this.handleChangeGrade = this.handleChangeGrade.bind(this);
