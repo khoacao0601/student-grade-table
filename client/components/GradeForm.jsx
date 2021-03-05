@@ -1,4 +1,4 @@
-
+import React from 'react';
 
     this.handleChangeName = this.handleChangeName.bind(this);
     this.handleChangeCourse = this.handleChangeCourse.bind(this);
